@@ -1,0 +1,226 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="home">
+    <div class="landing">
+        <div class="heading">
+            <h1 class="home_heading">Generative Artificial Intelligence</h1>
+            <div class="home_below_heading">
+                Generative artificial intelligence is artificial intelligence capable of generating
+                text, images, videos, or other data using generative models, often in response to
+                prompts. Generative AI models learn the patterns and structure of their input training
+                data and then generate new data that has similar characteristics.
+                <br><em>Wikipedia</em>
+            </div>
+        </div>
+        <video src="~/videos/video.mp4" loop muted autoplay="autoplay" preload="auto" class="video"></video>
+    </div>
+
+    <div class="ai_chat_page">
+        <div class="ai_chat_page_blocks">
+
+            <!-- Block 1: AI Chatbots -->
+            <div class="ai_chat_page_block">
+                <div class="ai_chat_page_block_desc">
+                    <h1>AI Chatbots</h1>
+                    <p>
+                        Artificial intelligence (AI) chatbots are apps or interfaces that can carry on
+                        human-like conversation using natural language understanding (NLU) or natural language
+                        processing (NLP) and machine learning (ML).
+                    </p>
+                    <a href="https://cloud.google.com/use-cases/ai-chatbot">Read More</a>
+                </div>
+                <div class="ai_chat_page_block_card card">
+                    <a href="https://gemini.google.com/app" target="_blank">
+                        <img src="~/images/gemini.jpg" alt="Gemini Image" class="card-img" />
+                        <div class="block_card_text">
+                            Gemini, formerly known as Bard, is a generative artificial intelligence chatbot
+                            developed by Google.<br>Wikipedia
+                        </div>
+                    </a>
+                </div>
+                <div class="ai_chat_page_block_card card">
+                    <a href="https://openai.com/index/chatgpt/" target="_blank">
+                        <img src="~/images/chatgpt.jpg" alt="ChatGPT Image" class="card-img" />
+                        <div class="block_card_text">
+                            ChatGPT is a chatbot and virtual assistant developed by OpenAI and launched on November
+                            30, 2022.<br>Wikipedia
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Block 2: AI Image Generators (disappears when not in viewport) -->
+            <div class="ai_chat_page_block disappear-on-scroll">
+                <div class="ai_chat_page_block_card card">
+                    <a href="https://pixlr.com/image-generator/" target="_blank">
+                        <img src="~/images/pixlr.jpg" alt="Pixlr Image" class="card-img" />
+                        <div class="block_card_text">
+                            Pixlr is a group of AI-powered SaaS creative tools including Pixlr.com, Designs.ai, and
+                            Vectr.com. <br>Wikipedia
+                        </div>
+                    </a>
+                </div>
+                <div class="ai_chat_page_block_card card">
+                    <a href="https://openai.com/index/dall-e-3/" target="_blank">
+                        <img src="~/images/dalle.jpg" alt="DALL·E Image" class="card-img" />
+                        <div class="block_card_text">
+                            DALL·E, DALL·E 2, and DALL·E 3 are text-to-image models developed by OpenAI.<br>Wikipedia
+                        </div>
+                    </a>
+                </div>
+                <div class="ai_chat_page_block_desc">
+                    <h1>AI Image Generator</h1>
+                    <p>
+                        AI Image Generator is an innovative tool using advanced AI techniques to generate images
+                        from a text prompt, just write what you want to generate and our AI will create it.
+                    </p>
+                    <a href="https://pixlr.com/image-generator/">Generate AI Images</a>
+                </div>
+            </div>
+
+            <!-- Block 3: AI Companies (disappears when not in viewport) -->
+            <div class="ai_chat_page_block disappear-on-scroll">
+                <div class="ai_chat_page_block_desc">
+                    <h1>AI Companies</h1>
+                    <p>
+                        Top Generative AI Companies: Microsoft, OpenAI, Google, Amazon, Anthropic, IBM, Meta,
+                        xAI, Stability, and Adobe.
+                    </p>
+                    <a href="https://www.vktr.com/ai-market/10-top-generative-ai-companies/">Read More</a>
+                </div>
+                <div class="ai_chat_page_block_card card">
+                    <a href="https://www.ibm.com/au-en" target="_blank">
+                        <img src="~/images/ibm.jpg" alt="IBM Image" class="card-img" />
+                        <div class="block_card_text">
+                            IBM is the largest industrial research organization in the world, with 19 research
+                            facilities across a dozen countries.<br>Wikipedia
+                        </div>
+                    </a>
+                </div>
+                <div class="ai_chat_page_block_card card">
+                    <a href="https://aws.amazon.com/q/?nc2=h_ql_prod_l1_q" target="_blank">
+                        <img src="~/images/amazon.jpg" alt="Amazon Image" class="card-img" />
+                        <div class="block_card_text">
+                            The most capable generative AI–powered assistant for accelerating software development
+                            and leveraging companies' internal data.<br>Amazon Q
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Upload AI Images Block (Always visible) -->
+            <div class="ai_below_blocks">
+                <h4 class="text-light">Upload AI images</h4>
+                @if (SignInManager.IsSignedIn(User))
+
+                {
+                    <a class="nav-link text-light" asp-area="" asp-controller="AIImages" asp-action="Create">Click here to upload new AI image</a>
+                }
+
+                else
+
+                {
+                    <p class="text-light">Please <a class="text-decoration-none" asp-area="Identity" asp-page="/Account/Login">login</a> or <a class="text-decoration-none" asp-area="Identity" asp-page="/Account/Register">register</a> to upload your AI images.</p>
+                }
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer with Font Awesome Icons -->
+    <footer>
+        <div class="footer-links">
+            <a href="/" class="footer-icon"><i class="fas fa-home"></i></a>
+            <a href="/AIImages" class="footer-icon"><i class="fas fa-images"></i></a>
+            <a href="/Contact" class="footer-icon"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+</div>
+
+<!-- JavaScript for IntersectionObserver to hide/show blocks based on viewport -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let options = {
+            root: null, // Use the viewport as the root
+            threshold: 0.5 // At least 50% of the block must be visible
+        };
+
+        let observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                } else {
+                    entry.target.style.opacity = "0";
+                    entry.target.style.transform = "translateY(100px)";
+                }
+            });
+        }, options);
+
+        // Attach observer to all elements with the class 'disappear-on-scroll'
+        document.querySelectorAll('.disappear-on-scroll').forEach(block => {
+            observer.observe(block);
+        });
+    });
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using WDP2024Assignment2.Data;
+
+    var builder = WebApplication.CreateBuilder(args);
+
+    // Add services to the container.
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+        ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    builder.Services.AddDbContext < ApplicationDbContext > (options =>
+        options.UseSqlite(connectionString));
+    builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+    // Identity configuration with default token providers
+    builder.Services.AddIdentity < IdentityUser, IdentityRole > (options => {
+        options.SignIn.RequireConfirmedAccount = true;  // Require confirmed accounts for sign-in
+        // You can add more Identity options here if necessary, e.g. Password or Lockout options
+    })
+        .AddEntityFrameworkStores < ApplicationDbContext > ()   // Add EF stores for Identity
+            .AddDefaultUI()                                     // Add default UI for Identity
+            .AddDefaultTokenProviders();                        // Ensure token providers are registered
+
+    builder.Services.AddControllersWithViews();
+
+    // Ensure database is updated at runtime by applying migrations if necessary
+    builder.Services.BuildServiceProvider()
+        .GetRequiredService < ApplicationDbContext > ()
+            .Database.Migrate();
+
+    /////////////////////////////////////////////////////
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment()) {
+        app.UseMigrationsEndPoint();
+    }
+    else {
+        app.UseExceptionHandler("/Home/Error");
+        app.UseHsts();  // The default HSTS value is 30 days.
+    }
+
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+
+    app.UseRouting();
+
+    app.UseAuthentication();  // Ensure Authentication middleware is added
+    app.UseAuthorization();
+
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    app.MapRazorPages();  // Map Razor Pages for Identity
+
+    app.Run();
+</script>

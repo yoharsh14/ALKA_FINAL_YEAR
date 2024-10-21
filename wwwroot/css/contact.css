@@ -1,0 +1,42 @@
+﻿.contact_landing{
+    background-image:url("../images/bg1.jpg");
+    height:100vh;
+}
+
+.contact_block{
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.contact_block_card{
+    display:flex;
+    flex-direction:column;
+    justify-content:start;
+    align-items:center;
+    width:30%;
+    height:300px;
+    background-color:rgb(5, 21, 116, 0.75);
+    border:1px solid white;
+    box-shadow: 10px 10px 0px 0px #f8f6b0;
+}
+
+.contact_block_card h1{
+    font:Niconne;
+    color:yellow;
+    font-size:2.5rem;
+    text-shadow:2px 2px 0px navy, 2px 2px 2px white;
+
+}
+
+.contact_block_card div{
+    width:80%;
+    border:solid 3px yellow;
+    margin:1vh;
+}
+
+.contact_block_card p{
+    font:Arial;
+    color:yellow;
+    font-size:1vw;
+    text-align:center;
+}
